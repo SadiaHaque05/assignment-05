@@ -3,6 +3,18 @@ function getElement(id){
     return element;
 }
 
+//heart count
+let heartCount = 0;
+const cards = document.querySelectorAll('.cards');
+for(let card of cards){
+    const heart = card.querySelector('.fa-heart');
+    heart.addEventListener('click', function(){
+        heartCount++;
+        document.getElementById('navbar-heart').innerText = heartCount;
+        heart.classList.toggle('text-red-500')
+    });
+}
+
 // call btn
 let coins = 100;
 const callButtons = document.getElementsByClassName('call-btn')
@@ -19,7 +31,7 @@ for(let button of callButtons){
             return;
         }
 
-        coins -= 20;
+        coins = coins - 20;
         document.getElementById('coin-count').innerText = coins;
 
         alert(`📞Calling
